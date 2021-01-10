@@ -10,19 +10,25 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  // New runtime config in Nuxt 2.13+
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL || 'http://localhost:8080',
+  },
+  privateRuntimeConfig: {
+    // apiSecret: process.env.API_SECRET,
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/apiDto'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
@@ -36,7 +42,9 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://127.0.0.1:8080/api/v1',
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
