@@ -15,7 +15,8 @@ export default {
     baseURL: process.env.BASE_URL || 'http://localhost:8080',
   },
   privateRuntimeConfig: {
-    // apiSecret: process.env.API_SECRET,
+    googleId: process.env.GOOGLE_CLIENTID,
+    fbId: process.env.FB_APPID,
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -37,6 +38,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://auth.nuxtjs.org/
+    '@nuxtjs/auth-next',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
@@ -44,6 +47,35 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: 'http://127.0.0.1:8080/api/v1',
+  },
+
+  // Auth-next module configuration (https://auth.nuxtjs.org/guide/scheme)
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+        },
+        user: {
+          property: 'user',
+        },
+        endpoints: {
+          login: { url: '/auth/signin', method: 'post' },
+          // logout: { url: '/api/auth/signout', method: 'post' },
+          user: { url: '/auth/me', method: 'get' },
+        },
+      },
+      google: {
+        clientId: process.env.GOOGLE_CLIENTID,
+      },
+      facebook: {
+        endpoints: {
+          userInfo: 'https://graph.facebook.com/v6.0/me?fields=id,name,picture{url}',
+        },
+        clientId: process.env.FB_APPID,
+        scope: ['public_profile', 'email'],
+      },
+    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
