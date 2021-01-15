@@ -54,14 +54,14 @@ export default {
     strategies: {
       local: {
         token: {
-          property: 'token',
+          property: 'accessToken',
         },
         user: {
-          property: 'user',
+          property: 'false',
         },
         endpoints: {
           login: { url: '/auth/signin', method: 'post' },
-          // logout: { url: '/api/auth/signout', method: 'post' },
+          // logout: { url: '/auth/signout', method: 'post' },
           user: { url: '/auth/me', method: 'get' },
         },
       },
