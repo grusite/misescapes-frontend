@@ -4,7 +4,7 @@
       class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md"
     >
       <div
-        class="p-4 py-6 text-pink-600 bg-gray-600 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
+        class="p-4 py-6 text-pink-600 bg-gray-800 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
       >
         <div class="my-3 text-4xl font-bold tracking-wider text-center">
           <nuxt-link to="/">MisEscapes</nuxt-link>
@@ -17,7 +17,8 @@
           <nuxt-link to="/login" class="underline">Logate!</nuxt-link>
         </p>
         <p class="mt-6 text-sm text-center text-pink-600">
-          Lee nuestros <nuxt-link to="#" class="underline">terminos</nuxt-link> y <nuxt-link to="#" class="underline">condiciones</nuxt-link>
+          Lee nuestros <nuxt-link to="#" class="underline">terminos</nuxt-link> y
+          <nuxt-link to="#" class="underline">condiciones</nuxt-link>
         </p>
       </div>
       <div class="p-5 bg-white md:flex-1">
@@ -37,7 +38,7 @@ export default {
         message: '',
         error: '',
         statusCode: '',
-      }
+      },
     }
   },
   methods: {
@@ -47,19 +48,18 @@ export default {
         this.response = {
           ...response,
           error: false,
-          statusCode: 200
+          statusCode: 200,
         }
       } catch (err) {
-        console.log("responseee", err.response.data)
+        console.log('responseee', err.response.data)
         this.response = {
           success: false,
-          ...err.response.data
+          ...err.response.data,
         }
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style>
-</style>
+<style></style>

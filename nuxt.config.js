@@ -20,7 +20,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: ['~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/apiDto'],
@@ -32,6 +32,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -76,6 +77,19 @@ export default {
         scope: ['public_profile', 'email'],
       },
     },
+  },
+
+  fontawesome: {
+    component: 'fa',
+    suffix: true,
+    icons: {
+      solid: ['faClock', 'faAddressCard'],
+      brands: ['faFacebook', 'faTwitter', 'faLinkedin', 'faYoutube', 'faInstagram'],
+    },
+  },
+
+  router: {
+    linkExactActiveClass: 'bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

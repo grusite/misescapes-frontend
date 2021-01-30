@@ -1,17 +1,15 @@
 <template>
   <div>
-    <nuxt-link to="/">Home page</nuxt-link><br/> <br/>
+    <nuxt-link to="/">Home page</nuxt-link><br />
+    <br />
     <div style="display: flex">
-      <img
-        alt="game image"
-        :src="game.image"
-        width="200"
-        height="150"
-      />
+      <img alt="game image" :src="game.image" width="200" height="150" />
     </div>
-    {{ game.id }} <br /> <br/>
-    <short-text :text="game.description" :target="150" /><br/> <br/>
-    <div style="height:800px;width:800px" ref="map"></div>
+    {{ game.id }} <br />
+    <br />
+    <ShortText :text="game.description" :target="150" /><br />
+    <br />
+    <div style="height: 800px; width: 800px" ref="map"></div>
   </div>
 </template>
 
@@ -19,7 +17,7 @@
 export default {
   async asyncData({ params, $dataApi, $apiDto, error }) {
     const gameResponse = await $dataApi.getGameById(params.id)
-    if(gameResponse.ok === false){
+    if (gameResponse.ok === false) {
       const errorDto = $apiDto.toErrorDto(gameResponse)
       return error({
         statusCode: errorDto.statusCode,
@@ -36,7 +34,7 @@ export default {
       title: this.game.id,
     }
   },
-  mounted(){
+  mounted() {
     this.$map.showMap(this.$refs.map, this.game.lat, this.game.lng)
   },
 }

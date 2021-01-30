@@ -1,8 +1,10 @@
 <template>
+  <!-- <div inline-flex> -->
+    <!-- <span v-html="displayText"></span> -->
     <span> {{ displayText }}
-        <button v-if="isTooLong && !isExpanded" class="link" type="button" @click="isExpanded = true">read more</button>
-        <button v-if="isTooLong && isExpanded" class="link" type="button" @click="isExpanded = false">read less</button>
-    </span>
+    <button v-if="isTooLong && !isExpanded" class="link" type="button" @click="isExpanded = true">read more</button>
+    <button v-if="isTooLong && isExpanded" class="link" type="button" @click="isExpanded = false">read less</button>
+  </span>   
 </template>
 
 <script>

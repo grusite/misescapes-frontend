@@ -1,14 +1,6 @@
 <template>
-  <div style="text-align: center">
-    <img
-      src="https://media1.tenor.com/images/99f00b32545bf5b5db8bf8ecbb7f0aec/tenor.gif?itemid=7971019"
-      alt="error image"
-    /><br /><br />
-    <h1>Error!</h1>
-    {{ error.message }} {{ error.statusCode }}
-    <br /><br />
-    <nuxt-link to="/">Home page</nuxt-link>
-  </div>
+  <ErrorPage v-if="error.statusCode === 404" :title="notFountTitle" :message="notFoundMessage" />
+  <ErrorPage v-else :title="generalTitle" :message="error.message" />
 </template>
 <script>
 export default {
@@ -20,7 +12,16 @@ export default {
   },
   head() {
     return {
-      title: 'BIG PROBLEMS!',
+      title: 'Error Page',
+    }
+  },
+  data() {
+    return {
+      notFountTitle: 'We are sorry, Page not found!',
+      notFoundMessage:
+        'The page you are looking for might have been removed had its name changed or is temporarily unavailable.',
+      generalTitle: 'We are sorry, there is an Error!',
+      generalMessage: 'You have experience an error. Try it again in a few minutes.',
     }
   },
 }

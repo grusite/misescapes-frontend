@@ -1,0 +1,37 @@
+<template>
+  <!-- This file lives in public/404.html -->
+  <div class="container mx-auto px-4">
+    <section class="py-8 px-4 text-center">
+      <div class="max-w-auto mx-auto">
+        <div class="md:max-w-lg mx-auto">
+          <!-- llustration by Ouch.pics https://icons8.com/ouch/illustration/cherry-list-is-empty-1 -->
+          <img class="w-64 mx-auto" src="~/assets/img/problem.png" />
+        </div>
+        <h2 class="mt-8 uppercase text-xl lg:text-5xl font-black text-gray-200">{{ title }}</h2>
+        <p class="mt-6 uppercase text-sm lg:text-base text-gray-200">
+          {{ message }}
+        </p>
+        <NuxtLink
+          to="/"
+          class="mt-6 bg-pink-700 hover:bg-pink-800 text-gray-200 font-light py-4 px-6 rounded-full inline-block uppercase shadow-md"
+          >Back To Homepage</NuxtLink
+        >
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: false,
+    },
+  },
+}
+</script>
