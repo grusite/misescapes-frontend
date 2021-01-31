@@ -58,7 +58,7 @@ export default {
           property: 'accessToken',
         },
         user: {
-          property: 'false',
+          property: 'name',
         },
         endpoints: {
           login: { url: '/auth/signin', method: 'post' },

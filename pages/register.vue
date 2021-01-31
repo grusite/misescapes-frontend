@@ -24,6 +24,8 @@
       <div class="p-5 bg-gray-200 md:flex-1">
         <h3 class="my-4 text-2xl font-semibold text-gray-700">Registrate</h3>
         <UserAuthForm :submitForm="userRegister" buttonText="Entrar" hasName="true" />
+        <Snackbar v-if="response.success" type="ok" :title="okTitle" :text="response.message" />
+        <Snackbar v-if="response.error" type="error" :title="errorTitle" :text="response.message" />
       </div>
     </div>
   </div>
@@ -39,6 +41,9 @@ export default {
         error: '',
         statusCode: '',
       },
+      okTitle: 'Successfully Registered!',
+      warningTitle: 'Warning!',
+      errorTitle: 'Error!',
     }
   },
   methods: {
