@@ -89,7 +89,8 @@ export default {
   },
 
   router: {
-    linkExactActiveClass: 'bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium',
+    linkExactActiveClass:
+      'bg-gray-900 text-gray-200 block px-3 py-2 rounded-md text-base font-medium',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

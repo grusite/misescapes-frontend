@@ -1,6 +1,6 @@
 <template>
   <!-- This file lives in public/404.html -->
-  <div class="container mx-auto px-4">
+  <div class="container min-h-screen mx-auto px-4">
     <section class="py-8 px-4 text-center">
       <div class="max-w-auto mx-auto">
         <div class="md:max-w-lg mx-auto">
