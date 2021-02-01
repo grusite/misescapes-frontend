@@ -29,8 +29,6 @@
           hasRememberMe="true"
           hasSocialButtons="true"
         />
-        <Snackbar v-if="response.success" type="ok" :title="okTitle" />
-        <Snackbar v-if="response.error" type="error" :title="errorTitle" :text="response.message" />
       </div>
     </div>
   </div>
@@ -46,30 +44,26 @@ export default {
         error: '',
         statusCode: '',
       },
-      okTitle: 'Successfully Loged!',
-      warningTitle: 'Warning!',
-      errorTitle: 'Error!',
     }
   },
   methods: {
     async userLogin(loginInfo) {
       try {
-        let response = await this.$auth.loginWith('local', { data: loginInfo })
-        console.log('response', response)
-        console.log('user', this.$auth.user)
+        this.$toastNotification.generate('Logando...', 'info', 'history')
+        await this.$auth.loginWith('local', { data: loginInfo })
         this.response = {
           success: true,
           message: `Usuario ${this.$auth.user} correctamente logado`,
           error: false,
           statusCode: 200,
         }
-        // this.$router.push('/')
+        this.$toastNotification.generate(this.response.message, 'success', 'done_all')
       } catch (err) {
-        console.log('responseee', err)
         this.response = {
           success: false,
-          ...err?.response.data,
+          ...err?.response?.data,
         }
+        this.$toastNotification.generate(this.response.message, 'error', 'clear')
       }
     },
   },

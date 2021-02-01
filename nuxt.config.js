@@ -7,7 +7,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.png' }],
   },
 
   // New runtime config in Nuxt 2.13+
@@ -23,7 +23,7 @@ export default {
   css: ['@fortawesome/fontawesome-svg-core/styles.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/apiDto'],
+  plugins: ['~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/apiDto', '~/plugins/toast'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -43,6 +43,9 @@ export default {
     '@nuxtjs/auth-next',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-material-design-icons',
+    // www.npmjs.com/package/@nuxtjs/toast
+    '@nuxtjs/toast',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -58,7 +61,7 @@ export default {
           property: 'accessToken',
         },
         user: {
-          property: 'name',
+          property: ['id', 'name', 'email'],
         },
         endpoints: {
           login: { url: '/auth/signin', method: 'post' },
@@ -79,6 +82,11 @@ export default {
     },
   },
 
+  router: {
+    linkExactActiveClass:
+      'bg-gray-900 text-gray-200 block px-3 py-2 rounded-md text-base font-medium',
+  },
+
   fontawesome: {
     component: 'fa',
     suffix: true,
@@ -86,11 +94,6 @@ export default {
       solid: ['faClock', 'faAddressCard'],
       brands: ['faFacebook', 'faTwitter', 'faLinkedin', 'faYoutube', 'faInstagram'],
     },
-  },
-
-  router: {
-    linkExactActiveClass:
-      'bg-gray-900 text-gray-200 block px-3 py-2 rounded-md text-base font-medium',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

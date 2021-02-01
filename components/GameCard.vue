@@ -21,11 +21,11 @@
 
     <div class="p-4 border-t border-b text-xs text-gray-700">
       <span class="flex items-center mb-1">
-        <fa-icon :icon="['fas', 'clock']" class="text-lg mr-2 text-gray-600" />
+        <i class="material-icons text-gray-900 mr-2"> query_builder </i>
         {{ game.duration }}
       </span>
       <span class="flex items-center">
-        <fa-icon :icon="['fas', 'address-card']" class="text-lg mr-2 text-gray-600" />
+        <i class="material-icons text-gray-900 mr-2"> contact_mail </i>
         {{ game.address }}
       </span>
     </div>

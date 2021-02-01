@@ -12,7 +12,7 @@
           {{ message }}
         </p>
         <NuxtLink
-          to="/"
+          :to="{ path: '/' }"
           class="mt-6 bg-pink-700 hover:bg-pink-800 text-gray-200 font-light py-4 px-6 rounded-full inline-block uppercase shadow-md"
           >Back To Homepage</NuxtLink
         >

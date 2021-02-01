@@ -24,8 +24,6 @@
       <div class="p-5 bg-gray-200 md:flex-1">
         <h3 class="my-4 text-2xl font-semibold text-gray-700">Registrate</h3>
         <UserAuthForm :submitForm="userRegister" buttonText="Entrar" hasName="true" />
-        <Snackbar v-if="response.success" type="ok" :title="okTitle" :text="response.message" />
-        <Snackbar v-if="response.error" type="error" :title="errorTitle" :text="response.message" />
       </div>
     </div>
   </div>
@@ -41,26 +39,25 @@ export default {
         error: '',
         statusCode: '',
       },
-      okTitle: 'Successfully Registered!',
-      warningTitle: 'Warning!',
-      errorTitle: 'Error!',
     }
   },
   methods: {
     async userRegister(registrationInfo) {
       try {
+        this.$toastNotification.generate('Registrando usuario...', 'info', 'history')
         const response = await this.$axios.$post('/auth/signup', registrationInfo)
         this.response = {
           ...response,
           error: false,
           statusCode: 200,
         }
+        this.$toastNotification.generate(this.response.message, 'success', 'done_all')
       } catch (err) {
-        console.log('responseee', err.response.data)
         this.response = {
           success: false,
           ...err.response.data,
         }
+        this.$toastNotification.generate(this.response.message, 'error', 'clear')
       }
     },
   },
