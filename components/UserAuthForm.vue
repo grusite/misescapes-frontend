@@ -36,14 +36,14 @@
         />
         <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
           <i v-if="showPassword" class="material-icons cursor-pointer" @click="switchPasswordType">
-            visibility_off
+            visibility
           </i>
           <i v-else class="material-icons cursor-pointer" @click="switchPasswordType">
-            visibility
+            visibility_off
           </i>
         </div>
       </div>
-      </div>
+    </div>
     <div v-if="hasRememberMe" class="flex items-center space-x-2">
       <input
         type="checkbox"
@@ -67,9 +67,9 @@
         <span class="h-px bg-gray-400 w-14"></span>
       </span>
       <div class="flex flex-col space-y-4">
-        <nuxt-link
-          to="#"
+        <button
           class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-red-700 rounded-md group hover:bg-red-700 focus:outline-none"
+          @click="googleLogin"
         >
           <span>
             <svg
@@ -85,10 +85,10 @@
             </svg>
           </span>
           <span class="text-sm font-medium text-red-700 group-hover:text-white">Google</span>
-        </nuxt-link>
-        <nuxt-link
-          to="#"
+        </button>
+        <button
           class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-blue-500 rounded-md group hover:bg-blue-500 focus:outline-none"
+          @click="fbLogin"
         >
           <span>
             <svg
@@ -103,7 +103,7 @@
             </svg>
           </span>
           <span class="text-sm font-medium text-blue-500 group-hover:text-white">Facebook</span>
-        </nuxt-link>
+        </button>
       </div>
     </div>
   </form>
@@ -117,11 +117,19 @@ export default {
         name: '',
         email: '',
         password: '',
-        showPassword: 'false',
       },
+      showPassword: false,
     }
   },
-  props: ['submitForm', 'buttonText', 'hasName', 'hasRememberMe', 'hasSocialButtons'],
+  props: [
+    'submitForm',
+    'googleLogin',
+    'fbLogin',
+    'buttonText',
+    'hasName',
+    'hasRememberMe',
+    'hasSocialButtons',
+  ],
   methods: {
     switchPasswordType() {
       this.showPassword = !this.showPassword

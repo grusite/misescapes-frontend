@@ -25,6 +25,8 @@
         <h3 class="my-4 text-2xl font-semibold text-gray-700">Login</h3>
         <UserAuthForm
           :submitForm="userLogin"
+          :googleLogin="googleLogin"
+          :fbLogin="fbLogin"
           buttonText="Entrar"
           hasRememberMe="true"
           hasSocialButtons="true"
@@ -59,7 +61,7 @@ export default {
         }
         await setTimeout(() => {
           this.$toastNotification.generate(this.response.message, 'success', 'done_all')
-        }, 2000);
+        }, 2000)
       } catch (err) {
         this.response = {
           success: false,
@@ -67,7 +69,53 @@ export default {
         }
         await setTimeout(() => {
           this.$toastNotification.generate(this.response.message, 'error', 'clear')
-        }, 2000);
+        }, 2000)
+      }
+    },
+    async googleLogin() {
+      try {
+        this.$toastNotification.generate('Logando...', 'info', 'history')
+        this.$auth.loginWith('google')
+        this.response = {
+          success: true,
+          message: `Usuario ${this.$auth.user} correctamente logado`,
+          error: false,
+          statusCode: 200,
+        }
+        await setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'success', 'done_all')
+        }, 2000)
+      } catch (err) {
+        this.response = {
+          success: false,
+          ...err?.response?.data,
+        }
+        await setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'error', 'clear')
+        }, 2000)
+      }
+    },
+    async fbLogin() {
+      try {
+        this.$toastNotification.generate('Logando...', 'info', 'history')
+        this.$auth.loginWith('facebook')
+        this.response = {
+          success: true,
+          message: `Usuario ${this.$auth.user} correctamente logado`,
+          error: false,
+          statusCode: 200,
+        }
+        await setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'success', 'done_all')
+        }, 2000)
+      } catch (err) {
+        this.response = {
+          success: false,
+          ...err?.response?.data,
+        }
+        await setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'error', 'clear')
+        }, 2000)
       }
     },
   },
