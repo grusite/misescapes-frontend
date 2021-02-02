@@ -27,13 +27,23 @@
           >olvidó la contraseña?</nuxt-link
         >
       </div>
-      <input
-        type="password"
-        id="password"
-        class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-        v-model="userInfo.password"
-      />
-    </div>
+      <div class="relative">
+        <input
+          :type="showPassword ? 'text' : 'password'"
+          id="password"
+          class="px-4 py-2 transition duration-300 border border-gray-300 rounded w-full focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+          v-model="userInfo.password"
+        />
+        <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+          <i v-if="showPassword" class="material-icons cursor-pointer" @click="switchPasswordType">
+            visibility_off
+          </i>
+          <i v-else class="material-icons cursor-pointer" @click="switchPasswordType">
+            visibility
+          </i>
+        </div>
+      </div>
+      </div>
     <div v-if="hasRememberMe" class="flex items-center space-x-2">
       <input
         type="checkbox"
@@ -107,10 +117,16 @@ export default {
         name: '',
         email: '',
         password: '',
+        showPassword: 'false',
       },
     }
   },
   props: ['submitForm', 'buttonText', 'hasName', 'hasRememberMe', 'hasSocialButtons'],
+  methods: {
+    switchPasswordType() {
+      this.showPassword = !this.showPassword
+    },
+  },
 }
 </script>
 

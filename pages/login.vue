@@ -57,13 +57,17 @@ export default {
           error: false,
           statusCode: 200,
         }
-        this.$toastNotification.generate(this.response.message, 'success', 'done_all')
+        await setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'success', 'done_all')
+        }, 2000);
       } catch (err) {
         this.response = {
           success: false,
           ...err?.response?.data,
         }
-        this.$toastNotification.generate(this.response.message, 'error', 'clear')
+        await setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'error', 'clear')
+        }, 2000);
       }
     },
   },

@@ -51,13 +51,18 @@ export default {
           error: false,
           statusCode: 200,
         }
-        this.$toastNotification.generate(this.response.message, 'success', 'done_all')
+        setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'success', 'done_all')
+          this.$router.push('login')
+        }, 2000)
       } catch (err) {
         this.response = {
           success: false,
           ...err.response.data,
         }
-        this.$toastNotification.generate(this.response.message, 'error', 'clear')
+        setTimeout(() => {
+          this.$toastNotification.generate(this.response.message, 'error', 'clear')
+        }, 2000)
       }
     },
   },

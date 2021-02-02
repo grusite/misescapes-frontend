@@ -8,7 +8,7 @@ export default function ({ $toast }, inject) {
       position: 'bottom-center',
       type,
       icon,
-      duration: 2000,
+      duration: 3000,
       theme: 'outline',
       action: [
         {
