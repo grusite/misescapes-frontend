@@ -69,6 +69,12 @@
         >
           {{ value }}</NuxtLink
         >
+        <div
+          class="block px-4 py-2 text-sm cursor-pointer text-gray-700 hover:bg-gray-100"
+          @click="logOut"
+        >
+          Salir
+        </div>
       </div>
     </div>
   </div>
@@ -88,6 +94,11 @@ export default {
     isHiddenUser: {
       type: Boolean,
       required: true,
+    },
+  },
+  methods: {
+    async logOut() {
+      await this.$auth.logout()
     },
   },
 }

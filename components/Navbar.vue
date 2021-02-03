@@ -63,7 +63,7 @@ export default {
       isHiddenUser: true,
       isHiddenNav: true,
       navMenuValues: ['Dashboard', 'Team', 'Projects', 'Calendar'],
-      userMenuValues: ['Mi perfil', 'Ajustes', 'Salir'],
+      userMenuValues: ['Mi perfil', 'Ajustes'],
     }
   },
   methods: {
