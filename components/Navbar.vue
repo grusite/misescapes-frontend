@@ -20,6 +20,7 @@
                 v-for="value in navMenuValues"
                 :key="value"
                 :to="{ path: `/${value.toLowerCase()}` }"
+                exact-active-class="bg-gray-900 text-gray-200 block px-3 py-2 rounded-md text-base font-medium"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >{{ value }}</NuxtLink
               >
@@ -48,6 +49,7 @@
           v-for="value in navMenuValues"
           :key="value"
           :to="value.toLowerCase()"
+          exact-active-class="bg-gray-900 text-gray-200 block px-3 py-2 rounded-md text-base font-medium"
           class="text-gray-200 block px-3 py-2 rounded-md text-base font-medium"
           >{{ value }}</NuxtLink
         >
@@ -81,4 +83,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+/* tailwind: bg-gray-900 text-gray-200 block px-3 py-2 rounded-md text-base font-medium */
+</style>
