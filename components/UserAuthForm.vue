@@ -67,8 +67,8 @@
         <span class="h-px bg-gray-400 w-14"></span>
       </span>
       <div class="flex flex-col space-y-4">
-        <button
-          class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-red-700 rounded-md group hover:bg-red-700 focus:outline-none"
+        <div
+          class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border cursor-pointer border-red-700 rounded-md group hover:bg-red-700 focus:outline-none"
           @click="googleLogin"
         >
           <span>
@@ -85,9 +85,9 @@
             </svg>
           </span>
           <span class="text-sm font-medium text-red-700 group-hover:text-white">Google</span>
-        </button>
-        <button
-          class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-blue-500 rounded-md group hover:bg-blue-500 focus:outline-none"
+        </div>
+        <div
+          class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border cursor-pointer border-blue-500 rounded-md group hover:bg-blue-500 focus:outline-none"
           @click="fbLogin"
         >
           <span>
@@ -103,7 +103,7 @@
             </svg>
           </span>
           <span class="text-sm font-medium text-blue-500 group-hover:text-white">Facebook</span>
-        </button>
+        </div>
       </div>
     </div>
   </form>
