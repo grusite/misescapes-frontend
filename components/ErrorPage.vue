@@ -1,10 +1,8 @@
 <template>
-  <!-- This file lives in public/404.html -->
-  <div class="container min-h-screen mx-auto px-4">
+  <div class="container flex items-center min-h-screen justify-center mx-auto px-4">
     <section class="py-8 px-4 text-center">
       <div class="max-w-auto mx-auto">
         <div class="md:max-w-lg mx-auto">
-          <!-- llustration by Ouch.pics https://icons8.com/ouch/illustration/cherry-list-is-empty-1 -->
           <img class="w-64 mx-auto" src="~/assets/img/problem.png" />
         </div>
         <h2 class="mt-8 uppercase text-xl lg:text-5xl font-black text-gray-200">{{ title }}</h2>
