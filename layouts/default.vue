@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="min-h-screen">
     <Navbar />
-    <div class="antialiased bg-gray-600 text-gray-900 font-sans p-6">
+    <div class="bg-gray-600">
       <Nuxt />
     </div>
   </div>

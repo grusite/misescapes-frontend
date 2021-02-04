@@ -1,10 +1,7 @@
 <template>
-  <div class="container mx-auto">
-    <div class="flex flex-wrap -mx-4">
-      <div v-for="game in games" :key="game.id" class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-        <NuxtLink :to="`/game/${game.id}`" prefetch><GameCard :game="game" /></NuxtLink>
-      </div>
-    </div>
+  <div class="min-w-screen mx-auto">
+    <SearchBar />
+    <GamesSection :games="games"/>
   </div>
 </template>
 
@@ -24,7 +21,7 @@ export default {
         return $apiDto.toGameDto(game)
       })
       return {
-        games: gamesDto.slice(2, 7),
+        games: gamesDto.slice(1, 10),
       }
     } catch (err) {
       console.log('erroooooooor: ', err.data)
@@ -48,5 +45,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

@@ -14,15 +14,15 @@
       </p>
       <div class="mt-3 flex items-center">
         <span class="text-sm font-semibold">Precio</span>&nbsp;<span class="font-bold text-xl"
-          >{{ game.minPrice }}-{{ game.maxPrice }}</span
-        >&nbsp;<span class="text-sm font-semibold">€</span>
+          >{{ game.minPrice||game.maxPrice }}-{{ game.maxPrice }}€</span
+        >
       </div>
     </div>
 
     <div class="p-4 border-t border-b text-xs text-gray-700">
       <span class="flex items-center mb-1">
         <i class="material-icons text-gray-900 mr-2"> query_builder </i>
-        {{ game.duration }}
+        {{ game.duration }} min
       </span>
       <span class="flex items-center">
         <i class="material-icons text-gray-900 mr-2"> contact_mail </i>

@@ -7,18 +7,18 @@
         class="p-4 py-6 text-gray-200 bg-gray-800 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
       >
         <div class="my-3 text-4xl font-bold tracking-wider text-center">
-          <nuxt-link to="/">MisEscapes</nuxt-link>
+          <NuxtLink to="/">MisEscapes</NuxtLink>
         </div>
         <p class="mt-6 font-normal text-center text-gray-200 md:mt-0">
           La primera aplicación donde podrás tener un histórico de los escapes que has ido haciendo!
         </p>
         <p class="flex flex-col items-center justify-center mt-10 text-center">
           <span>Todavía no tienes una cuenta?</span>
-          <nuxt-link to="/register" class="underline">Registrate!</nuxt-link>
+          <NuxtLink to="/register" class="underline">Registrate!</NuxtLink>
         </p>
         <p class="mt-6 text-sm text-center text-gray-200">
-          Lee nuestros <nuxt-link to="#" class="underline">terminos</nuxt-link> y
-          <nuxt-link to="#" class="underline">condiciones</nuxt-link>
+          Lee nuestros <NuxtLink to="#" class="underline">terminos</NuxtLink> y
+          <NuxtLink to="#" class="underline">condiciones</NuxtLink>
         </p>
       </div>
       <div class="p-5 bg-gray-200 md:flex-1">
