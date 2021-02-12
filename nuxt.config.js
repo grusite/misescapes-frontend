@@ -26,7 +26,7 @@ export default {
   plugins: ['~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/apiDto', '~/plugins/toast'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: ['~/components', { path: '~/pages', pattern: '*/components/**' }],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
